@@ -59,10 +59,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # build package
 RUN \
 	if [ -z ${RELEASE+x} ]; then \
-	RELEASE=$(curl -u "${SECRETUSER}:${SECRETPASS}" -sX GET "https://api.github.com/repos/ethgreencoin/ethgreen-blockchain/releases/latest" \
+	RELEASE=$(curl -u "${SECRETUSER}:${SECRETPASS}" -sX GET "https://api.github.com/repos/ethgreen/ethgreen-blockchain/releases/latest" \
 	| jq -r ".tag_name"); \
 	fi \
-	&& git clone -b "${RELEASE}" https://github.com/ethgreencoin/ethgreen-blockchain.git \
+	&& git clone -b "${RELEASE}" https://github.com/ethgreen/ethgreen-blockchain.git \
 		/ethgreen-blockchain \		
 	&& git submodule update --init mozilla-ca \
 	&& sh install.sh \
