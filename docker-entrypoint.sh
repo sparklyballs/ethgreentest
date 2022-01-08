@@ -11,8 +11,7 @@ cd /ethgreen-blockchain || exit 1
 # shellcheck disable=SC1091
 . ./activate
 
-ethgreen init
-# ethgreen init --fix-ssl-permissions
+ethgreen init --fix-ssl-permissions
 
 if [[ ${testnet} == 'true' ]]; then
    echo "configure testnet"
